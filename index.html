@@ -7,12 +7,12 @@
 
   <style>
     :root{
-      --card:rgba(255,255,255,.05);   /* полупрозрачные карточки */
-      --text:#e5e7eb;                 /* основной текст */
-      --muted:#9aa4ae;                /* серый для второстепенного */
+      --card:rgba(255,255,255,.05);
+      --text:#e5e7eb;
+      --muted:#9aa4ae;
       --white:#ffffff;
       --gray:#9aa4ae;
-      --accent:#25D366;               /* WhatsApp зелёный */
+      --accent:#25D366;
       --radius:16px;
       --gap:24px;
       --max:1200px;
@@ -24,33 +24,36 @@
       margin:0;
       color:var(--text);
       background-color:#0B0F14 !important;
-      background-image:url("assets/bg.jpg") !important;  /* ЕДИНЫЙ ФОН */
+      background-image:url("assets/bg.jpg") !important;
       background-repeat:no-repeat !important;
       background-size:cover !important;
-      background-position:center bottom !important;      /* показать завод */
+      background-position:center bottom !important;
       background-attachment:fixed !important;
       font:400 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
     }
-    header,main,section,.wrap{background:transparent !important;} /* секции прозрачные */
+    header,main,section,.wrap{background:transparent !important;}
     img{display:block;max-width:100%;height:auto;}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:24px 20px;}
 
     /* Шапка */
     .header{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{width:96px;height:auto}     /* только лого 96 px, без подписи */
+    .logo{width:96px;height:auto}
+    .header-right{display:flex;align-items:center;gap:20px}
     .nav{display:flex;gap:20px;overflow:auto;white-space:nowrap}
     .nav a{opacity:.9}
     .nav a:hover{opacity:1}
+    .mail{color:#cfe6d6;opacity:.95;white-space:nowrap}
+    .mail:hover{opacity:1;text-decoration:underline}
 
-    /* Герой: H1 во всю ширину; форма 1/3 справа; каскад слева */
+    /* Герой */
     .hero{display:grid;grid-template-columns:2fr 1fr;gap:var(--gap);align-items:start;margin-top:20px}
-    .h1{margin:72px 0 0 0; font-size:56px; line-height:1.05; letter-spacing:.2px} /* опущен H1 */
+    .h1{margin:72px 0 0 0; font-size:56px; line-height:1.05; letter-spacing:.2px}
     .h1 .gray{color:var(--gray)}
     .h1 .white{color:var(--white)}
-    .subtitle{margin-top:36px;color:var(--muted)} /* подпись ниже H1 */
+    .subtitle{margin-top:36px;color:var(--muted)}
 
-    /* Форма справа (верх формы ниже H1) */
+    /* Форма справа */
     .form-card{background:var(--card);padding:20px;border-radius:var(--radius)}
     .btn-whatsapp{
       display:inline-block;background:var(--accent);color:#000;
@@ -67,7 +70,7 @@
       padding:12px 14px;
       border-radius:12px;
       border:1px solid rgba(255,255,255,.15);
-      background:#11161d;            /* сплошной фон */
+      background:#11161d;
       color:#e5e7eb;
     }
     .form-input:focus,.form-textarea:focus{
@@ -75,29 +78,28 @@
       outline-offset:2px;
     }
 
-    /* Каскадная фраза — справа внутри левой колонки, фон как у формы */
-    .hero{ align-items:stretch; }                 /* колонки одной высоты */
+    /* Каскадная фраза */
+    .hero{ align-items:stretch; }
     .hero > div:first-child{ display:flex; }
     .form-card{ display:flex; box-sizing:border-box; }
 
     .cascade{
       flex:1 1 auto;
       display:flex; flex-direction:column; justify-content:center;
-      align-items:flex-end; text-align:right;               /* ВЫРОВНЕНО ВПРАВО */
+      align-items:flex-end; text-align:right;
       height:100%;
       margin:0; padding:20px; background:var(--card); border-radius:var(--radius);
     }
     .cascade .line{
-      font-style:normal; font-weight:300;                   /* инженерный шрифт: тоньше, без курсива */
+      font-style:normal; font-weight:300;
       font-size:clamp(28px, 2.4vw, 40px);
       letter-spacing:.015em;
-      color:#c1c8d0;                                        /* один блекло-серый для всех строк */
+      color:#c1c8d0;
       line-height:1.35; margin:8px 0 12px 0;
     }
     .cascade .line:last-child{margin-bottom:0}
-    .cascade .line.white{color:#c1c8d0;}                    /* без «белого Success» */
 
-    /* Строка вместо KPI-плашки */
+    /* KPI-строка */
     .kpi{
       grid-column:1 / -1;
       display:flex; align-items:baseline;
@@ -109,8 +111,8 @@
       text-shadow:0 1px 2px rgba(0,0,0,.5);
     }
     .kpi .k{display:inline-flex;align-items:baseline;gap:.35em;white-space:nowrap}
-    .kpi .num{color:#ffffff;}                               /* белые цифры и $ */
-    .kpi .k + .k::before{content:" · ";color:#dfe3e8;opacity:.85} /* разделитель */
+    .kpi .num{color:#ffffff;}
+    .kpi .k + .k::before{content:" · ";color:#dfe3e8;opacity:.85}
 
     /* Секции */
     .section{margin-top:40px}
@@ -119,17 +121,15 @@
     /* География */
     .flags{display:flex;flex-wrap:wrap;gap:16px}
     .flag{display:flex;flex-direction:column;align-items:center;gap:8px}
-    .flag img{width:88px;height:56px;object-fit:cover}  /* прямоугольные одинаковые */
+    .flag img{width:88px;height:56px;object-fit:cover}
     .flag small{color:var(--muted);font-weight:600;letter-spacing:.08em}
 
-    .about-after-geo{ margin-top:48px; }               /* больше воздуха под флагами */
+    .about-after-geo{ margin-top:48px; }
     .about-after-geo p{margin:0 0 16px 0}
     .about-after-geo p:last-child{margin-bottom:0}
-    .about-tagline{
-      margin:0 0 12px 0; color:var(--muted); font-weight:500; letter-spacing:.02em;
-    }
+    .about-tagline{ margin:0 0 12px 0; color:var(--muted); font-weight:500; letter-spacing:.02em; }
 
-    /* Кнопки скачивания PDF рядом с заголовками */
+    /* Кнопки скачивания PDF */
     .head-with-action{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
     .download{
       display:inline-flex;align-items:center;gap:8px;
@@ -146,7 +146,7 @@
       box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
     }
 
-    /* Карточки услуг */
+    /* Карточки */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
     .card{background:var(--card);padding:18px 20px;border-radius:var(--radius)}
     .card .minor{color:var(--muted)}
@@ -154,18 +154,37 @@
 
     /* Проекты */
     .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
-    .project{background:var(--card);border-radius:var(--radius);overflow:hidden}
-    .project img{width:100%;height:420px;object-fit:cover;object-position:center}
-    .project .meta{padding:14px 16px}
+    .project{position:relative;background:var(--card);border-radius:var(--radius);overflow:hidden}
+    .project img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      filter:brightness(.55) contrast(1.02); /* сильнее затемнил */
+    }
+    .project::after{
+      content:"";
+      position:absolute;inset:0;
+      background:rgba(0,0,0,.35); /* оверлей потемнее */
+      pointer-events:none;
+    }
+    .project .meta{position:relative;padding:14px 16px}
+
     @media (max-width:1024px){.project img{height:320px}}
     @media (max-width:640px){.project img{height:220px}}
 
     /* Команда */
     .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
-    .person{display:grid;grid-template-columns:80px 1fr;gap:16px;background:var(--card);padding:16px;border-radius:var(--radius)}
-    .avatar{width:80px;height:80px;object-fit:cover;border-radius:12px}
+    .member{display:flex;align-items:flex-start;gap:16px;background:var(--card);padding:16px;border-radius:var(--radius)}
+    .member img{width:80px;height:80px;object-fit:cover;border-radius:50%;flex:0 0 80px}
+    .member .meta{font-size:14px;line-height:1.5}
 
-    /* Мобилка: порядок H1 → форма → строка → О нас; навигация одной строкой со скроллом */
+    /* Футер */
+    footer{margin:48px 0 24px 0;color:var(--muted);font-size:14px}
+    footer .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+    /* Мобилка */
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .h1{font-size:46px}
@@ -180,59 +199,6 @@
       .flag img{width:72px;height:46px}
     }
   </style>
-<style>
-#team .team-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr; /* две колонки */
-  gap:24px;
-}
-#team .member{
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-  background: var(--card);
-  padding:16px;
-  border-radius: var(--radius);
-}
-#team .member img{
-  width:80px;
-  height:80px;
-  object-fit:cover;
-  border-radius:50%;
-  flex:0 0 80px;
-}
-#team .member .meta{
-  color:var(--text);
-  font-size:14px;
-  line-height:1.5;
-}
-@media (max-width: 900px){
-  #team .team-grid{ grid-template-columns:1fr; }
-}
-<style>
-  ...твой текущий CSS...
-
-  /* Приглушение картинок */
-  .project img,
-  .member img {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .project img::after,
-  .member img::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3); /* 30% затемнение */
-  }
-</style>
-</style>
 </head>
 <body>
 
@@ -240,13 +206,18 @@
     <a href="#" aria-label="BAYES EPC CONSULTING">
       <img src="assets/logo.png" alt="" class="logo">
     </a>
-    <nav class="nav">
-      <a href="#about">О нас</a>
-      <a href="#clients">Заказчикам</a>
-      <a href="#contractors">Подрядчикам</a>
-      <a href="#projects">Проекты</a>
-      <a href="#team">Команда</a>
-    </nav>
+    <div class="header-right">
+      <nav class="nav">
+        <a href="#about">О нас</a>
+        <a href="#clients">Заказчикам</a>
+        <a href="#contractors">Подрядчикам</a>
+        <a href="#standards">Стандарты</a>
+        <a href="#policies">Политики</a>
+        <a href="#projects">Проекты</a>
+        <a href="#team">Команда</a>
+      </nav>
+      <a class="mail" href="mailto:info@bayesepc.pro">info@bayesepc.pro</a>
+    </div>
   </header>
 
   <main class="wrap">
@@ -256,14 +227,13 @@
     </h1>
     <div class="subtitle">Engineering · Procurement · Construction</div>
 
-    <!-- Две колонки: слева каскад, справа форма 1/3 (верх формы ниже H1) -->
+    <!-- Две колонки: слева каскад, справа форма -->
     <section class="hero">
       <div>
-        <!-- каскадная фраза — слева от формы, по правому краю блока -->
         <div class="cascade">
           <span class="line">Blueprint Activities</span>
           <span class="line">Yield Elegant</span>
-          <span class="line white">Success</span>
+          <span class="line">Success</span>
         </div>
       </div>
 
@@ -279,10 +249,9 @@
         </form>
       </aside>
 
-      <!-- Строка вместо KPI-плашки -->
       <div class="kpi">
         <span class="k"><span class="num">20+</span> лет опыт</span>
-        <span class="k"><span class="num">30 +</span> реализованных проектов</span>
+        <span class="k"><span class="num">30+</span> реализованных проектов</span>
         <span class="k"><span class="num">$20</span> млрд + бюджет</span>
       </div>
     </section>
@@ -301,11 +270,10 @@
         <div class="flag"><img src="assets/flags/ci.png"  alt=""><small>CI</small></div>
       </div>
 
-      <!-- О нас -->
       <div class="about-after-geo" id="about">
         <p class="about-tagline">Мы никого не заменяем — мы помогаем</p>
         <p>Команда экспертов с глубинными компетенциями в управлении сложными проектами.</p>
-        <p>Мы специализируемся на предоставлении целевого консалтинга для двух ключевых сторон: Заказчиков (промышленность и инфраструктура) и Подрядчиков (EPC-компании, строители, инжиниринговые и снабженческие организации).</p>
+        <p>Мы специализируемся на предоставлении целевого консалтинга для двух ключевых сторон: Заказчиков (промышленность и инфраструктура) и Подрядчиков (EPC‑компании, строители, инжиниринговые и снабженческие организации).</p>
       </div>
     </section>
 
@@ -316,10 +284,10 @@
         <a class="download pdf" href="assets/fto.pdf" download>Пять советов Заказчику</a>
       </div>
       <div class="grid">
-        <div class="card"><h4>Поддержка Инжиниринга</h4><div class="minor"></div></div>
-        <div class="card"><h4>Подготовка корпоративной редакции ЕРС Контракта</h4><div class="minor"></div></div>
-        <div class="card"><h4>Интеграция Объём/QA/QC</h4><div class="minor"></div></div>
-        <div class="card"><h4>Cast &amp; Schedule</h4><div class="minor"></div></div>
+        <div class="card"><h4>Поддержка Инжиниринга</h4></div>
+        <div class="card"><h4>Подготовка корпоративной редакции ЕРС Контракта</h4></div>
+        <div class="card"><h4>Интеграция Объём/QA/QC</h4></div>
+        <div class="card"><h4>Cast &amp; Schedule</h4></div>
       </div>
     </section>
 
@@ -337,82 +305,115 @@
       </div>
     </section>
 
+    <!-- Стандарты и методологии -->
+    <section class="section" id="standards">
+      <h2 class="title">Стандарты и методологии</h2>
+      <div class="grid">
+        <div class="card"><h4>Primavera P6</h4><div class="minor">управление графиками крупных CAPEX‑проектов</div></div>
+        <div class="card"><h4>PRINCE2</h4><div class="minor">процессный контроль и управляемая этапность</div></div>
+        <div class="card"><h4>IPMA</h4><div class="minor">компетентностная модель управления проектами</div></div>
+        <div class="card"><h4>ISO</h4><div class="minor">качество, экология, охрана труда — интегрировано в практику</div></div>
+      </div>
+
+      <div class="about-after-geo" style="margin-top:16px">
+        <p class="about-tagline">Гармонизация технических стандартов</p>
+        <p>Без ущерба интересам инвесторов и требованиям законодательства — бесконфликтное совмещение ВСН, СНИП, ГОСТ с API, ASME, ASTM, AWWA, DIN и др.</p>
+      </div>
+    </section>
+
+    <!-- Политики BAYES -->
+    <section class="section" id="policies">
+      <h2 class="title">Политики BAYES</h2>
+      <div class="grid">
+        <div class="card"><h4>Конфликт интересов</h4><div class="minor">На одном проекте мы работаем только на одной стороне — Заказчика или Подрядчика.</div></div>
+        <div class="card"><h4>Конфиденциальность</h4><div class="minor">По выполненным проектам действуют обязательства; конкретные кейсы не раскрываются.</div></div>
+        <div class="card"><h4>Контракты</h4><div class="minor">Предлагаем «тяжёлые редакции» контракта — чтобы оградить от невидимых рисков.</div></div>
+        <div class="card"><h4>Стандарты заказчика</h4><div class="minor">Работаем в выбранной рамке требований и корпоративных процедур Заказчика.</div></div>
+      </div>
+    </section>
 
     <!-- Команда -->
-<section class="section" id="team">
-  <h2 class="title">Команда</h2>
-  <div class="team-grid">
+    <section class="section" id="team">
+      <h2 class="title">Команда</h2>
+      <div class="team-grid">
 
-    <article class="member">
-      <img src="assets/experts/aa.png" alt="">
-      <div class="meta">Аскар Айсаутов — 20+ лет на международных проектах; менеджмент QA/QC, строительства и инжиниринга; нефть и газ, промышленное и инфраструктурное строительство.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/aa.png" alt="">
+          <div class="meta">Аскар Айсаутов — 20+ лет на международных проектах; менеджмент QA/QC, строительства и инжиниринга; нефть и газ, промышленное и инфраструктурное строительство.</div>
+        </article>
 
-    <article class="member">
-      <img src="assets/experts/ys.jpg" alt="">
-      <div class="meta">Еркебулан Салкен — 20+ лет на международных проектах; менеджмент планирования; нефть и газ, морские объекты, горнорудные проекты. География: Объединённое Королевство, ОАЭ, Пакистан, Иран, Ирак, Кот‑д’Ивуар.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/ys.jpg" alt="">
+          <div class="meta">Еркебулан Салкен — 20+ лет на международных проектах; менеджмент планирования; нефть и газ, морские объекты, горнорудные проекты. География: Объединённое Королевство, ОАЭ, Пакистан, Иран, Ирак, Кот‑д’Ивуар.</div>
+        </article>
 
-    <article class="member">
-      <img src="assets/experts/nt.jpg" alt="">
-      <div class="meta">Нурлан Торптаев — 20+ лет на международных проектах, электроэнергетика. Казахстан, СНГ, Сингапур, Ближний Восток.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/nt.jpg" alt="">
+          <div class="meta">Нурлан Торптаев — 20+ лет на международных проектах, электроэнергетика. Казахстан, СНГ, Сингапур, Ближний Восток.</div>
+        </article>
 
-    <article class="member">
-      <img src="assets/experts/sz.jpg" alt="">
-      <div class="meta">Санжар Жакишев — 20+ лет на международных проектах; главный планер Лукойл на проектах Ближнего Востока. Казахстан.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/sz.jpg" alt="">
+          <div class="meta">Санжар Жакишев — 20+ лет на международных проектах; главный планер Лукойл на проектах Ближнего Востока. Казахстан.</div>
+        </article>
 
-    <article class="member">
-      <img src="assets/experts/km.jpg" alt="">
-      <div class="meta">Кайыржан Мухитов — 20+ лет на международных проектах, менеджмент строительства: нефть и газ, промышленное и инфраструктурное строительство. Казахстан, Ближний Восток, Африка.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/km.jpg" alt="">
+          <div class="meta">Кайыржан Мухитов — 20+ лет на международных проектах, менеджмент строительства: нефть и газ, промышленное и инфраструктурное строительство. Казахстан, Ближний Восток, Африка.</div>
+        </article>
 
-    <article class="member">
-      <img src="assets/experts/ba.png" alt="">
-      <div class="meta">Болат Абилов — 20+ лет на международных проектах; управление, контроль, претензионная работа.</div>
-    </article>
+        <article class="member">
+          <img src="assets/experts/ba.png" alt="">
+          <div class="meta">Болат Абилов — 20+ лет на международных проектах; управление, контроль, претензионная работа.</div>
+        </article>
 
-  </div>
-</section>
+      </div>
+    </section>
 
     <!-- Проекты -->
     <section class="section" id="projects">
-  <h2 class="title">Проекты</h2>
-  <div class="projects-grid">
+      <h2 class="title">Проекты</h2>
+      <div class="projects-grid">
 
-    <article class="project">
-      <img src="assets/projects/ggip-iraq.webp" alt="">
-      <div class="meta">Ирак. GGIP: мульти-энергетический проект. 2025-2030 гг.</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/ggip-iraq.webp" alt="">
+          <div class="meta">Ирак. GGIP: мульти-энергетический проект. 2025-2030 гг.</div>
+        </article>
 
-    <article class="project">
-      <img src="assets/projects/tsgp-na.jpg" alt="">
-      <div class="meta">Нигерия / Алжир. Транссахарский газопровод, 4000км, 30 млрд м3/г 2024-2029 гг.</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/tsgp-na.jpg" alt="">
+          <div class="meta">Нигерия / Алжир. Транссахарский газопровод, 4000км, 30 млрд м3/г 2024-2029 гг.</div>
+        </article>
 
-    <article class="project">
-      <img src="assets/projects/baleine-uk-ci.jpeg" alt="">
-      <div class="meta">Соединённое Королевство/ Кот-д’Ивуар. Разработка месторождения на шельфе. 2022-2024 гг</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/baleine-uk-ci.jpeg" alt="">
+          <div class="meta">Соединённое Королевство/ Кот‑д’Ивуар. Разработка месторождения на шельфе. 2022‑2024 гг</div>
+          </article>
 
-    <article class="project">
-      <img src="assets/projects/iraq-dev.jpg" alt="">
-      <div class="meta">Ирак. Разработка месторождения, хранение и транспортировка нефти и газа. 2012-2019 гг</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/iraq-dev.jpg" alt="">
+          <div class="meta">Ирак. Разработка месторождения, хранение и транспортировка нефти и газа. 2012‑2019 гг</div>
+        </article>
 
-    <article class="project">
-      <img src="assets/projects/isom-shnos.jpg" alt="">
-      <div class="meta">Казахстан. Реконструкция установки Изомеризации, ШНОС. 2014-2016 гг</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/isom-shnos.jpg" alt="">
+          <div class="meta">Казахстан. Реконструкция установки Изомеризации, ШНОС. 2014‑2016 гг</div>
+        </article>
 
-    <article class="project">
-      <img src="assets/projects/kz-cn-pipeline.jpg" alt="">
-      <div class="meta">Нефтепровод Казахстан – Китай: трубопровод более 2000 км с насосными станциями 2002-2012 гг.</div>
-    </article>
+        <article class="project">
+          <img src="assets/projects/kz-cn-pipeline.jpg" alt="">
+          <div class="meta">Нефтепровод Казахстан – Китай: трубопровод более 2000 км с насосными станциями 2002‑2012 гг.</div>
+        </article>
 
-  </div>
-</section>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="foot">
+        <div>Алматы, Республика Казахстан</div>
+        <div><a class="mail" href="mailto:info@bayesepc.pro">info@bayesepc.pro</a></div>
+      </div>
+    </footer>
   </main>
 </body>
 </html>
